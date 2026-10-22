@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Isentric</title>
+<title>iSentric</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
   html{-webkit-text-size-adjust:100%}
@@ -101,7 +101,7 @@
   <header>
     <div>
       <p class="eyebrow">Modellportfolio · Gesamtrendite seit 05.10.2026</p>
-      <h1>Isentric</h1>
+      <h1>iSentric</h1>
     </div>
     <div class="val-box">
       <div class="big tnum" id="curVal">–</div>
@@ -166,67 +166,354 @@ const NAMES = {
 };
 /* === DATA:START (taegliches Update ersetzt genau diese Sektion) === */
 const DATA = {
-  asOf: "2026-10-20",
-  startDate: "2026-10-05",
-  index: 100.400643,
-  stockQuote: 56.22,
-  cashQuote: 43.78,
-  positions: 14,
-  // Gesamtrendite seit 05.10. in % (Modellindex − 100), je Tagesprüfung
-  series: [
-    {d:"2026-10-05", r:0.00},
-    {d:"2026-10-06", r:0.97},
-    {d:"2026-10-07", r:0.94},
-    {d:"2026-10-08", r:1.74},
-    {d:"2026-10-09", r:2.16},
-    {d:"2026-10-12", r:2.01},
-    {d:"2026-10-13", r:2.15},
-    {d:"2026-10-14", r:1.26},
-    {d:"2026-10-15", r:0.21},
-    {d:"2026-10-16", r:0.78},
-    {d:"2026-10-19", r:0.60},
-    {d:"2026-10-20", r:0.40}
+  "startDate": "2026-10-05",
+  "asOf": "2026-10-22",
+  "index": 101.14,
+  "stockQuote": 56.54,
+  "cashQuote": 43.46,
+  "positions": 14,
+  "series": [
+    {
+      "d": "2026-10-05",
+      "r": 0.0
+    },
+    {
+      "d": "2026-10-06",
+      "r": 0.97
+    },
+    {
+      "d": "2026-10-07",
+      "r": 0.94
+    },
+    {
+      "d": "2026-10-08",
+      "r": 1.74
+    },
+    {
+      "d": "2026-10-09",
+      "r": 2.16
+    },
+    {
+      "d": "2026-10-12",
+      "r": 2.01
+    },
+    {
+      "d": "2026-10-13",
+      "r": 2.15
+    },
+    {
+      "d": "2026-10-14",
+      "r": 1.26
+    },
+    {
+      "d": "2026-10-15",
+      "r": 0.21
+    },
+    {
+      "d": "2026-10-16",
+      "r": 0.78
+    },
+    {
+      "d": "2026-10-19",
+      "r": 0.6
+    },
+    {
+      "d": "2026-10-20",
+      "r": 0.4
+    },
+    {
+      "d": "2026-10-21",
+      "r": 0.62
+    },
+    {
+      "d": "2026-10-22",
+      "r": 1.14
+    }
   ],
-  // aktuelle Gewichte (Stand 20.10., Schlusskurse 19.10.)
-  holdings: [
-    {t:"AMZN", w:4.18}, {t:"PAYS", w:4.13}, {t:"MU", w:4.10}, {t:"VEEV", w:4.06},
-    {t:"OSCR", w:4.06}, {t:"NUE", w:4.05}, {t:"NVDA", w:4.04}, {t:"HPE", w:4.03},
-    {t:"AVAH", w:4.01}, {t:"FCX", w:3.99}, {t:"MPC", w:3.94}, {t:"VLO", w:3.88},
-    {t:"ADM", w:3.88}, {t:"IBDRY", w:3.87}
+  "holdings": [
+    {
+      "t": "MU",
+      "w": 4.11
+    },
+    {
+      "t": "NVDA",
+      "w": 4.1
+    },
+    {
+      "t": "HPE",
+      "w": 4.17
+    },
+    {
+      "t": "MPC",
+      "w": 3.87
+    },
+    {
+      "t": "VLO",
+      "w": 3.88
+    },
+    {
+      "t": "AVAH",
+      "w": 4.16
+    },
+    {
+      "t": "VEEV",
+      "w": 4.08
+    },
+    {
+      "t": "PAYS",
+      "w": 4.17
+    },
+    {
+      "t": "OSCR",
+      "w": 4.14
+    },
+    {
+      "t": "ADM",
+      "w": 3.8
+    },
+    {
+      "t": "NUE",
+      "w": 4.08
+    },
+    {
+      "t": "FCX",
+      "w": 3.91
+    },
+    {
+      "t": "IBDRY",
+      "w": 3.92
+    },
+    {
+      "t": "AMZN",
+      "w": 4.15
+    }
   ],
-  cashWeight: 43.78,
-  // Trades: type, ticker, startW, newW, price
-  trades: [
-    // Initialkäufe 05.10.2026 — Einstieg = reguläres Open 05.10.
-    {d:"2026-10-05", type:"Kauf", t:"ADM",  sw:0, nw:5.00, px:81.08},
-    {d:"2026-10-05", type:"Kauf", t:"AMZN", sw:0, nw:5.00, px:250.47},
-    {d:"2026-10-05", type:"Kauf", t:"AVAH", sw:0, nw:5.00, px:12.58},
-    {d:"2026-10-05", type:"Kauf", t:"FCX",  sw:0, nw:5.00, px:72.70},
-    {d:"2026-10-05", type:"Kauf", t:"HPE",  sw:0, nw:5.00, px:69.11},
-    {d:"2026-10-05", type:"Kauf", t:"IBDRY",sw:0, nw:5.00, px:93.90},
-    {d:"2026-10-05", type:"Kauf", t:"MPC",  sw:0, nw:5.00, px:424.00},
-    {d:"2026-10-05", type:"Kauf", t:"MU",   sw:0, nw:5.00, px:1069.55},
-    {d:"2026-10-05", type:"Kauf", t:"NUE",  sw:0, nw:5.00, px:243.89},
-    {d:"2026-10-05", type:"Kauf", t:"NVDA", sw:0, nw:5.00, px:236.06},
-    {d:"2026-10-05", type:"Kauf", t:"OSCR", sw:0, nw:5.00, px:31.02},
-    {d:"2026-10-05", type:"Kauf", t:"PAYS", sw:0, nw:5.00, px:14.33},
-    {d:"2026-10-05", type:"Kauf", t:"VEEV", sw:0, nw:5.00, px:275.77},
-    {d:"2026-10-05", type:"Kauf", t:"VLO",  sw:0, nw:5.00, px:405.68},
-    // Umstellung auf je 4 % am 19.10.2026 — Kursbasis 16.10.2026
-    {d:"2026-10-19", type:"Rebalance", t:"ADM",  sw:5.0993, nw:4.00, px:82.61},
-    {d:"2026-10-19", type:"Rebalance", t:"AMZN", sw:4.9955, nw:4.00, px:250.00},
-    {d:"2026-10-19", type:"Rebalance", t:"AVAH", sw:4.9094, nw:4.00, px:12.34},
-    {d:"2026-10-19", type:"Rebalance", t:"FCX",  sw:4.7873, nw:4.00, px:69.54},
-    {d:"2026-10-19", type:"Rebalance", t:"HPE",  sw:3.9907, nw:4.00, px:55.13},
-    {d:"2026-10-19", type:"Rebalance", t:"IBDRY",sw:5.2010, nw:4.00, px:97.58},
-    {d:"2026-10-19", type:"Rebalance", t:"MPC",  sw:5.6431, nw:4.00, px:478.07},
-    {d:"2026-10-19", type:"Rebalance", t:"MU",   sw:4.1124, nw:4.00, px:878.84},
-    {d:"2026-10-19", type:"Rebalance", t:"NUE",  sw:5.2593, nw:4.00, px:256.29},
-    {d:"2026-10-19", type:"Rebalance", t:"NVDA", sw:4.5399, nw:4.00, px:214.13},
-    {d:"2026-10-19", type:"Rebalance", t:"OSCR", sw:5.1452, nw:4.00, px:31.89},
-    {d:"2026-10-19", type:"Rebalance", t:"PAYS", sw:5.1690, nw:4.00, px:14.80},
-    {d:"2026-10-19", type:"Rebalance", t:"VEEV", sw:5.6326, nw:4.00, px:310.36},
-    {d:"2026-10-19", type:"Rebalance", t:"VLO",  sw:5.4864, nw:4.00, px:444.71}
+  "cashWeight": 43.46,
+  "trades": [
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "ADM",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 81.08
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "AMZN",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 250.47
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "AVAH",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 12.58
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "FCX",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 72.7
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "HPE",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 69.11
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "IBDRY",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 93.9
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "MPC",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 424.0
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "MU",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 1069.55
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "NUE",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 243.89
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "NVDA",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 236.06
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "OSCR",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 31.02
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "PAYS",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 14.33
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "VEEV",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 275.77
+    },
+    {
+      "d": "2026-10-05",
+      "type": "Kauf",
+      "t": "VLO",
+      "sw": 0.0,
+      "nw": 5.0,
+      "px": 405.68
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "ADM",
+      "sw": 5.0993,
+      "nw": 4.0,
+      "px": 82.61
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "AMZN",
+      "sw": 4.9955,
+      "nw": 4.0,
+      "px": 250.0
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "AVAH",
+      "sw": 4.9094,
+      "nw": 4.0,
+      "px": 12.34
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "FCX",
+      "sw": 4.7873,
+      "nw": 4.0,
+      "px": 69.54
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "HPE",
+      "sw": 3.9907,
+      "nw": 4.0,
+      "px": 55.13
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "IBDRY",
+      "sw": 5.201,
+      "nw": 4.0,
+      "px": 97.58
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "MPC",
+      "sw": 5.6431,
+      "nw": 4.0,
+      "px": 478.07
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "MU",
+      "sw": 4.1124,
+      "nw": 4.0,
+      "px": 878.84
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "NUE",
+      "sw": 5.2593,
+      "nw": 4.0,
+      "px": 256.29
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "NVDA",
+      "sw": 4.5399,
+      "nw": 4.0,
+      "px": 214.13
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "OSCR",
+      "sw": 5.1452,
+      "nw": 4.0,
+      "px": 31.89
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "PAYS",
+      "sw": 5.169,
+      "nw": 4.0,
+      "px": 14.8
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "VEEV",
+      "sw": 5.6326,
+      "nw": 4.0,
+      "px": 310.36
+    },
+    {
+      "d": "2026-10-19",
+      "type": "Rebalance",
+      "t": "VLO",
+      "sw": 5.4864,
+      "nw": 4.0,
+      "px": 444.71
+    }
   ]
 };
 /* === DATA:END === */
@@ -328,7 +615,7 @@ const signPct = v => (v>=0?'+':'−')+pct2.format(Math.abs(v))+' %';
       `<td class="num${sep}">${pct2.format(t.sw)}</td>`+
       `<td class="num${sep}">${pct2.format(t.nw)}</td>`+
       `<td class="num${sep}" style="color:${chg>=0?'var(--pos)':'var(--neg)'}">${chg>=0?'+':'−'}${pct2.format(Math.abs(chg))}</td>`+
-      `<td class="num${sep}">${usd2.format(t.px)}</td>`;
+      `<td class="num${sep}">${t.px==null?'–':usd2.format(t.px)}</td>`;
     b.appendChild(tr);
   });
 })();
