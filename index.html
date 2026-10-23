@@ -537,7 +537,7 @@ const signPct = v => (v>=0?'+':'−')+pct2.format(Math.abs(v))+' %';
   const v=document.getElementById('curVal');
   v.className='big tnum '+(up?'up':'down');
   v.textContent=signPct(last);
-  document.getElementById('asOf').textContent=`Stand ${dLong(DATA.asOf)}`;
+  document.getElementById('asOf').textContent=`Stand ${dLong(DATA.asOf)} · vor Marktöffnung`;
   document.getElementById('note').textContent=`Aktienquote ${pct1.format(DATA.stockQuote)} % · Cash ${pct1.format(DATA.cashQuote)} % · ${DATA.positions} Positionen`;
 })();
 
