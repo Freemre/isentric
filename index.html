@@ -90,6 +90,7 @@
   .pill{display:inline-block;font-size:.72rem;font-family:var(--sans);font-weight:600;padding:2px 9px;border-radius:999px;border:1px solid transparent}
   .pill.kauf{color:var(--pos);border-color:color-mix(in srgb,var(--pos) 35%,transparent);background:color-mix(in srgb,var(--pos) 10%,transparent)}
   .pill.reb{color:var(--ink-soft);border-color:var(--line);background:var(--surface-2)}
+  .pill.verkauf{color:var(--neg);border-color:color-mix(in srgb,var(--neg) 35%,transparent);background:color-mix(in srgb,var(--neg) 10%,transparent)}
   td.trenn{border-top:2px solid var(--line)}
   footer{margin-top:26px;font-size:.74rem;color:var(--muted);line-height:1.6}
 </style>
@@ -167,10 +168,10 @@ const NAMES = {
 /* === DATA:START (taegliches Update ersetzt genau diese Sektion) === */
 const DATA = {
   "startDate": "2026-10-05",
-  "asOf": "2026-10-22",
-  "index": 101.14,
-  "stockQuote": 56.54,
-  "cashQuote": 43.46,
+  "asOf": "2026-10-23",
+  "index": 99.86,
+  "stockQuote": 55.98,
+  "cashQuote": 44.02,
   "positions": 14,
   "series": [
     {
@@ -228,67 +229,71 @@ const DATA = {
     {
       "d": "2026-10-22",
       "r": 1.14
+    },
+    {
+      "d": "2026-10-23",
+      "r": -0.14
     }
   ],
   "holdings": [
     {
       "t": "MU",
-      "w": 4.11
+      "w": 3.9
     },
     {
       "t": "NVDA",
-      "w": 4.1
+      "w": 3.97
     },
     {
       "t": "HPE",
-      "w": 4.17
+      "w": 4.03
     },
     {
       "t": "MPC",
-      "w": 3.87
+      "w": 3.84
     },
     {
       "t": "VLO",
-      "w": 3.88
+      "w": 3.84
     },
     {
       "t": "AVAH",
-      "w": 4.16
+      "w": 4.32
     },
     {
       "t": "VEEV",
-      "w": 4.08
+      "w": 4.16
     },
     {
       "t": "PAYS",
-      "w": 4.17
+      "w": 4.11
     },
     {
       "t": "OSCR",
-      "w": 4.14
+      "w": 4.18
     },
     {
       "t": "ADM",
-      "w": 3.8
+      "w": 3.87
     },
     {
       "t": "NUE",
-      "w": 4.08
+      "w": 4.03
     },
     {
       "t": "FCX",
-      "w": 3.91
+      "w": 3.72
     },
     {
       "t": "IBDRY",
-      "w": 3.92
+      "w": 4.02
     },
     {
       "t": "AMZN",
-      "w": 4.15
+      "w": 4.01
     }
   ],
-  "cashWeight": 43.46,
+  "cashWeight": 44.02,
   "trades": [
     {
       "d": "2026-10-05",
@@ -603,7 +608,8 @@ const signPct = v => (v>=0?'+':'−')+pct2.format(Math.abs(v))+' %';
   const b=document.getElementById('tradeBody');
   let prevDate=null;
   DATA.trades.forEach(t=>{
-    const chg=t.nw-t.sw, cls=t.type==='Kauf'?'kauf':'reb';
+    const chg=(t.sw==null||t.nw==null)?null:t.nw-t.sw;
+    const cls=t.type==='Kauf'?'kauf':t.type==='Verkauf'?'verkauf':'reb';
     const sep=(prevDate&&prevDate!==t.d)?' trenn':'';
     prevDate=t.d;
     const tr=document.createElement('tr');
@@ -612,9 +618,9 @@ const signPct = v => (v>=0?'+':'−')+pct2.format(Math.abs(v))+' %';
       `<td class="${sep}"><span class="pill ${cls}">${t.type}</span></td>`+
       `<td class="${sep}">${NAMES[t.t]||t.t}</td>`+
       `<td class="ticker${sep}">${t.t}</td>`+
-      `<td class="num${sep}">${pct2.format(t.sw)}</td>`+
-      `<td class="num${sep}">${pct2.format(t.nw)}</td>`+
-      `<td class="num${sep}" style="color:${chg>=0?'var(--pos)':'var(--neg)'}">${chg>=0?'+':'−'}${pct2.format(Math.abs(chg))}</td>`+
+      `<td class="num${sep}">${t.sw==null?'–':pct2.format(t.sw)}</td>`+
+      `<td class="num${sep}">${t.nw==null?'–':pct2.format(t.nw)}</td>`+
+      `<td class="num${sep}" style="color:${chg==null?'inherit':(chg>=0?'var(--pos)':'var(--neg)')}">${chg==null?'–':(chg>=0?'+':'−')+pct2.format(Math.abs(chg))}</td>`+
       `<td class="num${sep}">${t.px==null?'–':usd2.format(t.px)}</td>`;
     b.appendChild(tr);
   });
